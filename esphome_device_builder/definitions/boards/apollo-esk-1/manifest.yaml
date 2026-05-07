@@ -72,7 +72,7 @@ pins:
   occupied_by: Onboard WS2812 RGB LED
   notes: WS2812 addressable LED, active by default
 - gpio: 6
-  label: GPIO6
+  label: Button
   features:
   - adc
   available: true
@@ -84,7 +84,7 @@ pins:
   available: true
   notes: Available on FPC connector
 - gpio: 9
-  label: BUTTON
+  label: Boot Button
   features:
   - boot_button
   available: false
