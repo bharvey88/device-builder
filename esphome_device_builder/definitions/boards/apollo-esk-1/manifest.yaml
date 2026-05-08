@@ -62,14 +62,14 @@ pins:
   available: true
   notes: FPC connector — default pin for the bundled PIR motion module
 - gpio: 4
-  label: ACCESSORY_PWR
+  label: ACCESSORY PWR
   available: false
   occupied_by: Accessory power switch (controls FPC module power rail)
   notes: Internal GPIO switch, ALWAYS_ON with setup_priority 2000 — must latch high before FPC modules enumerate
 - gpio: 5
-  label: RGB_LED
+  label: ONBOARD LED
   features:
-  - rgb_led
+  - onboard_rgb_led
   available: false
   occupied_by: Onboard WS2812 RGB LED
   notes: WS2812 addressable LED, active by default
@@ -77,6 +77,7 @@ pins:
   label: Button Module
   features:
   - adc
+  - button_module
   available: true
   notes: Available on FPC connector
 - gpio: 7
@@ -231,6 +232,19 @@ featured_components:
       value: 14
     chipset: WS2812
     num_leds: 10
+    rgb_order: GRB
+- id: onboard_rgb_led
+  component_id: light.esp32_rmt_led_strip
+  name: Onboard RGB LED
+  description: |
+    The RGB LED on the esp module
+  fields:
+    id: onboard_rgb_led
+    name: Onboard RGB LED
+    pin:
+      value: 5
+    chipset: WS2812
+    num_leds: 1
     rgb_order: GRB
 - id: buzzer_output
   component_id: output.ledc
