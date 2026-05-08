@@ -3,10 +3,12 @@ name: Apollo ESPHome Starter Kit
 description: >
   Official ESPHome Starter Kit by Apollo Automation. Plug-and-play kit with
   an ESP32-C6-MINI-1 module, two 14-pin FPC expansion ports, onboard RGB LED,
-  and USB-C power. Comes with three swappable sensor modules: PIR motion
-  (MH-SR602, 0-3.5 m range), AHT20F temperature and humidity sensor, and
-  an RGB LED strip with piezo buzzer. Any two modules can be used
-  simultaneously to build a multisensor. No soldering or coding required.
+  and USB-C power. Comes with four swappable modules: Motion Module
+  (MH-SR602, 0-3.5 m range), AHT20F Temperature and Humidity Module, an
+  RGB + Buzzer Module (10 RGB LEDs and a piezo buzzer in the Apollo
+  ESPHome Casita form factor), and a Button Module. Any two modules
+  can be used simultaneously to build a multisensor. No soldering or
+  coding required.
 manufacturer: Apollo Automation
 images:
 - https://cdn.shopify.com/s/files/1/0792/0959/5187/files/eskboard.jpg?v=1775723467
@@ -128,7 +130,7 @@ featured_components:
       locked: true
 - id: aht20
   component_id: sensor.aht10
-  name: AHT20 Temperature & Humidity
+  name: AHT20 Temperature & Humidity Module
   description: |
     Sensor module shipped with the kit. Plug into either FPC connector;
     it talks I²C so no per-pin config is needed beyond the bus above.
@@ -170,14 +172,14 @@ featured_components:
     restore_mode: ALWAYS_ON
     setup_priority: 2000
     internal: true
-- id: pir_motion
+- id: motion_module
   component_id: binary_sensor.gpio
-  name: PIR Motion Module (MH-SR602)
+  name: Motion Module (MH-SR602)
   description: |
     Motion sensor module included with the kit.
   fields:
-    id: pir_motion
-    name: PIR Motion Module
+    id: motion_module
+    name: Motion Module
     pin:
       value: 3
     device_class: motion
@@ -202,11 +204,11 @@ featured_components:
       locked: true
 - id: button_module
   component_id: binary_sensor.gpio
-  name: Button Module (FPC accessory)
+  name: Button Module
   description: |
-    Plug-in pushbutton accessory module. Wired to GPIO6 on the FPC connector;
-    active-low with internal pull-up so the ``inverted`` flag turns "pressed"
-    into the on state.
+    Pushbutton module shipped with the starter kit. Wired to GPIO6 on the
+    FPC connector; active-low with internal pull-up so the ``inverted`` flag
+    turns "pressed" into the on state.
   fields:
     id: button_1
     name: Button 1
@@ -217,16 +219,14 @@ featured_components:
           input: true
           pullup: true
         inverted: true
-- id: rgb_strip
+- id: rgb_leds
   component_id: light.esp32_rmt_led_strip
-  name: RGB LED Strip (addon module)
+  name: RGB LEDs (module)
   description: |
-    Addressable LED strip from the RGB+buzzer addon. Ships with a 10-LED
-    WS2812 strip in GRB order — adjust ``num_leds`` / ``rgb_order`` /
-    ``chipset`` if you swap in a different strip.
+    The RGB LEDs on the front of the RGB + Buzzer module.
   fields:
-    id: rgb_strip
-    name: RGB LED Strip
+    id: rgb_leds
+    name: RGB LEDs
     pin:
       value: 14
     chipset: WS2812
@@ -234,19 +234,18 @@ featured_components:
     rgb_order: GRB
 - id: buzzer_output
   component_id: output.ledc
-  name: Piezo Buzzer (addon module)
+  name: Piezo Buzzer (module)
   description: |
-    PWM output driving the piezo buzzer on the RGB+buzzer addon.
+    The piezo buzzer on the back of the RGB + Buzzer module.
   fields:
     id: buzzer_output
     pin:
       value: 18
 - id: rtttl_player
   component_id: rtttl
-  name: RTTTL Player (addon buzzer)
+  name: RTTTL Player (buzzer)
   description: |
-    Plays RTTTL ringtones through the piezo buzzer above. Wired to the
-    ``buzzer_output`` LEDC output that ships with the same addon.
+    Plays ringtones (RTTTL format) through the piezo buzzer.
   fields:
     id: rtttl_player
     output:
@@ -256,7 +255,8 @@ featured_bundles:
 - id: rgb_buzzer_module
   name: RGB LED + Buzzer Module
   description: |
-    Plug-in addon shipped with the starter kit — addressable LED
-    strip plus a piezo buzzer. Adds the strip, the buzzer PWM output,
-    and the RTTTL player as one logical unit.
-  component_ids: [rgb_strip, buzzer_output, rtttl_player]
+    Plug-in module shipped with the starter kit, in the Apollo ESPHome
+    Casita form factor. The front has 10 RGB LEDs; the back has a piezo
+    buzzer. Adds the LEDs, the buzzer, and the ringtone player as one
+    logical unit.
+  component_ids: [rgb_leds, buzzer_output, rtttl_player]
