@@ -69,7 +69,7 @@ pins:
 - gpio: 5
   label: ONBOARD LED
   features:
-  - onboard_rgb_led
+  - rgb_led
   available: false
   occupied_by: Onboard WS2812 RGB LED
   notes: WS2812 addressable LED, active by default
@@ -77,9 +77,8 @@ pins:
   label: Button Module
   features:
   - adc
-  - button_module
   available: true
-  notes: Available on FPC connector
+  notes: FPC connector — default pin for the bundled Button Module
 - gpio: 7
   label: GPIO7
   features:
@@ -237,12 +236,13 @@ featured_components:
   component_id: light.esp32_rmt_led_strip
   name: Onboard RGB LED
   description: |
-    The RGB LED on the esp module
+    The onboard RGB LED on the ESP32-C6 module.
   fields:
     id: onboard_rgb_led
     name: Onboard RGB LED
     pin:
       value: 5
+      locked: true
     chipset: WS2812
     num_leds: 1
     rgb_order: GRB
