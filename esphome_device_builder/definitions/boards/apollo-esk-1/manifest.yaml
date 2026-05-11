@@ -178,7 +178,9 @@ featured_components:
   component_id: binary_sensor.gpio
   name: Motion Module (MH-SR602)
   description: |
-    Motion sensor module included with the kit.
+    Motion sensor module included with the starter kit. Detects motion
+    in rooms like a kitchen, bathroom, or hallway, perfect for
+    triggering lights or other automations.
   fields:
     id: motion_module
     name: Motion Module
