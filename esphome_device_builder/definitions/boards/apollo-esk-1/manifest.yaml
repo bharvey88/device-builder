@@ -228,7 +228,10 @@ featured_components:
   component_id: light.esp32_rmt_led_strip
   name: RGB LEDs (module)
   description: |
-    The RGB LEDs on the front of the RGB + Buzzer module.
+    The 10 RGB LEDs by themselves, without the buzzer parts. If you have
+    the whole RGB + Buzzer module, add the "RGB LED + Buzzer Module"
+    bundle instead. It includes the LEDs along with the buzzer and
+    ringtone player.
   fields:
     id: rgb_leds
     name: RGB LEDs
@@ -255,7 +258,10 @@ featured_components:
   component_id: output.ledc
   name: Piezo Buzzer (module)
   description: |
-    The piezo buzzer on the back of the RGB + Buzzer module.
+    The piezo buzzer output by itself, without the LEDs. If you have
+    the whole RGB + Buzzer module, add the "RGB LED + Buzzer Module"
+    bundle instead. It includes the buzzer along with the LEDs and
+    ringtone player.
   fields:
     id: buzzer_output
     pin:
@@ -264,7 +270,10 @@ featured_components:
   component_id: rtttl
   name: RTTTL Player (buzzer)
   description: |
-    Plays ringtones (RTTTL format) through the piezo buzzer.
+    Plays ringtones through a piezo buzzer (RTTTL format). If you have
+    the whole RGB + Buzzer module, add the "RGB LED + Buzzer Module"
+    bundle instead. It includes the ringtone player along with the
+    LEDs and buzzer.
   fields:
     id: rtttl_player
     output:
