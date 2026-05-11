@@ -56,7 +56,7 @@ pins:
   - adc
   available: true
 - gpio: 3
-  label: GPIO 3 (Motion Module)
+  label: GPIO3
   features:
   - adc
   available: true
@@ -74,7 +74,7 @@ pins:
   occupied_by: Onboard WS2812 RGB LED
   notes: WS2812 addressable LED, active by default
 - gpio: 6
-  label: GPIO 6 (Button Module)
+  label: GPIO6
   features:
   - adc
   available: true
@@ -93,13 +93,13 @@ pins:
   occupied_by: Physical button
   notes: Active-low with internal pull-up, directly usable
 - gpio: 14
-  label: GPIO 14 (RGB LEDs)
+  label: GPIO14
   features:
   - adc
   available: true
   notes: FPC connector, pin used by the RGB + Buzzer module's LEDs
 - gpio: 18
-  label: GPIO 18 (Buzzer)
+  label: GPIO18
   features:
   - adc
   available: true
