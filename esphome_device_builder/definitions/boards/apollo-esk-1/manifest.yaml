@@ -272,8 +272,8 @@ featured_bundles:
 - id: rgb_buzzer_module
   name: RGB LED + Buzzer Module
   description: |
-    Plug-in module shipped with the starter kit, in the Apollo ESPHome
-    Casita form factor. The front has 10 RGB LEDs; the back has a piezo
-    buzzer. Adds the LEDs, the buzzer, and the ringtone player as one
-    logical unit.
+    The starter kit's RGB + Buzzer module. 10 RGB LEDs across the front.
+    On the back: a piezo buzzer plus the FPC connector that plugs into
+    the board. Adding this drops the LEDs, the buzzer, and the ringtone
+    player into your config all at once.
   component_ids: [rgb_leds, buzzer_output, rtttl_player]
