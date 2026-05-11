@@ -132,9 +132,11 @@ featured_components:
   component_id: sensor.aht10
   name: AHT20 Temperature & Humidity Module
   description: |
-    Temperature and humidity module shipped with the kit. Plug it into
-    either FPC connector and add the I²C Bus component, which the AHT20
-    uses to communicate.
+    Temperature and humidity module shipped with the starter kit. Plug
+    it into either FPC connector and add the I²C Bus component so it
+    can talk to the board. Accurate to ±0.3°C and ±2% humidity, useful
+    for tracking room comfort or humidity in places like a bathroom or
+    basement.
   fields:
     id: aht20
     name: AHT20 Temperature & Humidity Module
