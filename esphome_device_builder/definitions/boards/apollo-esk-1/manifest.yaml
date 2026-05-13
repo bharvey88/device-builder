@@ -134,9 +134,10 @@ featured_components:
   description: |
     Temperature and humidity module shipped with the starter kit. Plug
     it into either FPC connector and add the I²C Bus component so it
-    can talk to the board. Accurate to ±0.3°C and ±2% humidity, useful
-    for tracking room comfort or humidity in places like a bathroom or
-    basement.
+    can talk to the board. Add the Accessory Power Rail component so
+    the connector gets power. Accurate to ±0.3°C and ±2% humidity,
+    useful for tracking room comfort or humidity in places like a
+    bathroom or basement.
   fields:
     id: aht20
     variant: AHT20
@@ -164,9 +165,10 @@ featured_components:
   component_id: switch.gpio
   name: Accessory Power Rail
   description: |
-    Internal switch that powers the FPC accessory connectors at boot.
-    You don't need to touch this. It's set to always-on so plug-in
-    modules get power before they start up.
+    Powers the FPC accessory connectors at boot. Required for any FPC
+    accessory module (Motion, AHT20, Button, RGB + Buzzer) to work.
+    Marked internal so it doesn't appear in your home automation
+    dashboard.
   fields:
     id: accessory_power
     pin:
@@ -179,9 +181,11 @@ featured_components:
   component_id: binary_sensor.gpio
   name: Motion Module (MH-SR602)
   description: |
-    Motion sensor module included with the starter kit. Detects motion
-    in rooms like a kitchen, bathroom, or hallway, perfect for
-    triggering lights or other automations.
+    Motion sensor module included with the starter kit. Plug it into
+    either FPC connector and add the Accessory Power Rail component so
+    the connector gets power. Detects motion in rooms like a kitchen,
+    bathroom, or hallway, perfect for triggering lights or other
+    automations.
   fields:
     id: motion_module
     name: Motion Module
@@ -212,7 +216,9 @@ featured_components:
   name: Button Module
   description: |
     Pushbutton module shipped with the starter kit. Plug it into the
-    FPC connector (GPIO 6) and use it as a button input in automations.
+    FPC connector (GPIO 6) and add the Accessory Power Rail component
+    so the connector gets power. Use it as a button input in
+    automations.
   fields:
     id: button_module
     name: Button Module
@@ -285,5 +291,6 @@ featured_bundles:
     The starter kit's RGB + Buzzer module. 10 RGB LEDs across the front.
     On the back: a piezo buzzer plus the FPC connector that plugs into
     the board. Adding this drops the LEDs, the buzzer, and the ringtone
-    player into your config all at once.
+    player into your config all at once. Add the Accessory Power Rail
+    component so the connector gets power.
   component_ids: [rgb_leds, buzzer_output, rtttl_player]
